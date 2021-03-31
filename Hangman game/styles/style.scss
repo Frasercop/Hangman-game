@@ -1,0 +1,85 @@
+//Made by Fraser Copland
+
+@charset "utf-8";
+
+$bgColor: grey;
+$winColor: lime;
+$loseColor: indianRed;
+$divWidth: 90%;
+
+$btnRound: 5px;
+$btnSize: 30px;
+$textFont: "Comic Sans MS", cursive, sans-serif;
+
+body {
+    background-color: $bgColor;
+    font-family: $textFont;
+    text-align: center;
+}
+div,header {
+    display: block;
+    padding: 10px;
+}
+
+@mixin popup() {
+    width:300px;
+    padding:10px;
+    border:solid 1px black;
+    box-shadow:0px 0px 5px yellow, 5px 5px 5px black;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    opacity:0;
+    
+    pointer-events: none;
+}
+
+@mixin btn($btnRound, $btnSize) {
+    padding: $btnSize;
+    border-radius: $btnRound;
+}
+
+#lose{
+    background-color: $loseColor;
+    color:white;
+    @include popup();
+}
+
+#win{
+    background-color: $winColor;
+    color:black;
+    @include popup();
+}
+
+.container{
+    margin-left: 5%;
+    margin-right: 5%;
+    width: $divWidth;
+    background-color: green;
+    padding: auto;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+header {
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: red;
+    height: 100%;
+    width: $divWidth;
+    
+}
+
+img {
+    height: 100px;
+}
+button {
+    font-family: $textFont;
+    @include btn($btnRound, $btnSize);
+}
+#play-again, #try-again {
+    pointer-events: all;
+}
+h1 {
+    font-size: 50px;
+}
